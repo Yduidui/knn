@@ -15,6 +15,7 @@
 """
 import csv
 import json
+import shutil
 import sys
 import zipfile
 from pathlib import Path
@@ -26,6 +27,23 @@ import segno
 ROOT = Path(__file__).resolve().parents[1]
 CFG = json.loads((ROOT / "config.json").read_text(encoding="utf-8"))
 
+IGNORE = {"__pycache__", ".pytest_cache", ".ipynb_checkpoints", ".git"}
+IGNORE_SUFFIX = {".pyc", ".pyo"}
+
+
+def sync_starter(prob_dir, meta):
+    """把 starter 源目录同步到站点路径，让学生 clone 后可直接运行。"""
+    src = prob_dir / "starter"
+    dst = ROOT / meta["path"].strip("/") / "starter"
+    if dst.exists():
+        shutil.rmtree(dst)
+    shutil.copytree(
+        src, dst,
+        ignore=shutil.ignore_patterns(*IGNORE, *IGNORE_SUFFIX, ".DS_Store", "Thumbs.db"),
+    )
+    n = sum(1 for _ in dst.rglob("*") if _.is_file())
+    print(f"  starter/    已同步 {n} 个文件")
+
 
 def find_problems(only=None):
     out = []
@@ -35,10 +53,6 @@ def find_problems(only=None):
             continue
         out.append((meta_path.parent, meta))
     return out
-
-
-IGNORE = {"__pycache__", ".pytest_cache", ".ipynb_checkpoints", ".git"}
-IGNORE_SUFFIX = {".pyc", ".pyo"}
 
 
 def make_zip(prob_dir, meta):
@@ -98,6 +112,7 @@ def main():
     rows = []
     for prob_dir, meta in find_problems(only):
         print(f"\n[{meta['id']}] {meta['title']}")
+        sync_starter(prob_dir, meta)
         size = make_zip(prob_dir, meta)
         url, svg, png = make_qr(meta)
         status = check(url)

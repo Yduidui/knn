@@ -25,14 +25,6 @@
     transform:translateY(1px)}
   p{margin:0 0 14px}
   a{color:var(--accent)}
-  .dl{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:18px 0 8px}
-  .card{background:var(--card);border:1px solid var(--line);border-radius:10px;
-    padding:16px 15px;text-decoration:none;color:inherit;display:block;
-    transition:border-color .15s,transform .15s}
-  .card:hover{border-color:#b9ae95;transform:translateY(-1px)}
-  .card .name{font-size:14.5px;font-weight:600;display:block;margin-bottom:4px}
-  .card .meta{font-size:12.5px;color:var(--sub);display:block;line-height:1.55}
-  .card .size{font-variant-numeric:tabular-nums}
   table{width:100%;border-collapse:collapse;font-size:14.5px;margin:14px 0 6px;
     background:var(--card);border:1px solid var(--line);border-radius:10px;overflow:hidden}
   th,td{text-align:left;padding:9px 13px;border-bottom:1px solid #efebe1}
@@ -65,7 +57,8 @@
   footer{margin-top:52px;padding-top:20px;border-top:1px solid var(--line);
     font-size:13px;color:var(--sub);display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
   @media(max-width:620px){
-    h1{font-size:22px} .dl{grid-template-columns:1fr} header{padding-top:30px}
+    h1{font-size:22px} header{padding-top:30px}
+    pre{font-size:12.5px;padding:13px 14px}
   }
 </style>
 </head>
@@ -78,23 +71,23 @@
   <p class="lede">以 546 种化合物的分子结构描述符为输入，用 KNN 回归预测其对大型溞的 48 小时急性毒性 pLC50。本题的重点不是调包，而是亲手把距离、标准化与 K 值选择做一遍。</p>
 </header>
 
-<h2>下载</h2>
-<div class="dl">
-  <a class="card" href="starter.zip" download>
-    <span class="name">代码骨架</span>
-    <span class="meta">knn_tox.py + 判分脚本<br><span class="size">15 KB · zip</span></span>
-  </a>
-  <a class="card" href="train.csv" download>
-    <span class="name">训练集</span>
-    <span class="meta">436 条 × 9 列<br><span class="size">21 KB · csv</span></span>
-  </a>
-  <a class="card" href="test.csv" download>
-    <span class="name">测试集</span>
-    <span class="meta">110 条 × 9 列<br><span class="size">5 KB · csv</span></span>
-  </a>
-</div>
+<h2>快速开始</h2>
+<pre><span class="c"># 1. 克隆仓库，数据、代码和判分脚本都在里面</span>
+git clone https://github.com/Yduidui/knn.git
+
+<span class="c"># 2. 进入本题目录</span>
+cd knn/p/4-5/starter
+
+<span class="c"># 3. 安装依赖，只有 numpy 和 pytest</span>
+pip install -r requirements.txt
+
+<span class="c"># 4. 自测，10 项全绿即完成</span>
+pytest -q
+
+<span class="c"># 5. 打印交叉验证曲线与测试集指标</span>
+python knn_tox.py</pre>
 <p style="font-size:13.5px;color:var(--sub);margin-top:12px">
-  代码骨架里已包含两个数据文件和判分脚本，解压后离线即可运行。
+  没装 git 的话，<a href="starter.zip">下载 starter.zip</a>（13.8 KB），解压后从第 3 步开始。两边的文件完全一样。
 </p>
 
 <h2>数据说明</h2>
@@ -124,16 +117,6 @@
   <li>令 K 取 1 至 15，用 5 折交叉验证估计误差，绘出 K-误差曲线并确定最优 K。</li>
   <li>在测试集上报告最优 K 的 RMSE 与 R²，并回答：K=1 时误差为何明显偏大？K 增大到一定程度后误差为何不再下降？</li>
 </ol>
-
-<h2>环境与运行</h2>
-<pre><span class="c"># 只需要 numpy 和 pytest</span>
-pip install -r requirements.txt
-
-<span class="c"># 自测，10 项全绿即完成</span>
-pytest -q
-
-<span class="c"># 打印交叉验证曲线与测试集指标</span>
-python knn_tox.py</pre>
 
 <h2>评分点</h2>
 <div class="score">

@@ -72,20 +72,12 @@ python scripts/build.py
 - 出书或需要放大时用 `4-5.svg`，矢量不失真。
 - 二维码下面加一行小五号灰字：`扫码获取数据集与代码包　Yduidui.github.io/knn/p/4-5`
 
-## 六、加新题
-
-1. 复制 `exercises/ch04/prob-4-5/` 为同级新目录，改 `meta.json` 里的 `id`、`path`、标题
-2. 新建 `p/<id>/` 目录，放数据文件和 `index.html`（照 4-5 的页面改）
-3. 跑 `python scripts/build.py`，二维码和压缩包一次生成
-4. 在根 `index.html` 的题目列表里加一张卡片
-5. `git add . && git commit -m "新增习题 x-y" && git push`
-
-## 七、几个必须知道的限制
+## 六、几个必须知道的限制
 
 **国内访问**：GitHub Pages 在国内时通时不通，教育网内通常正常，手机流量不保证。
 印刷前一定要用多台手机实测，扫不出来就改用学校域名或对象存储方案。
 
-**URL 长度与印刷尺寸**：`https://用户名.github.io/knn/p/4-5/` 约 45 字符，
+**URL 长度与印刷尺寸**：`https://Yduidui.github.io/knn/p/4-5/` 是 36 字符，
 纠错等级 H 下是 37×37 模块（含静区 45×45）。
 32mm 成品对应模块尺寸约 0.71mm，能扫但不算宽裕。
 若用户名较长导致 URL 超过 55 字符，把印刷尺寸放大到 35mm。
