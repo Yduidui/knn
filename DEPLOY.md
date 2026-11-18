@@ -11,15 +11,28 @@
 
 ## 二、推送文件
 
-在本目录下执行（把 `你的用户名` 和 `knn` 换成实际值）：
+仓库已经初始化并提交，本机也已配好 SSH 密钥（`~/.ssh/id_ed25519_github`），
+只需把公钥加到 GitHub 后推送：
 
 ```bash
-git init
-git add .
-git commit -m "习题 4.5 配套资源"
-git branch -M main
-git remote add origin https://github.com/你的用户名/knn.git
+# 首次：把公钥内容粘到 https://github.com/settings/keys
+cat ~/.ssh/id_ed25519_github.pub
+
+# 验证连通
+ssh -T git@github.com
+
+# 推送
 git push -u origin main
+```
+
+远程地址用的是 SSH（`git@github.com:Yduidui/knn.git`）。
+本机 HTTPS 走代理会被拦，所以不要换回 https 地址。
+
+如果换一台机器，或想用 HTTPS，命令是：
+
+```bash
+git remote set-url origin https://github.com/Yduidui/knn.git
+git push -u origin main   # 需要 Personal Access Token，不能只用密码
 ```
 
 ## 三、开启 Pages
@@ -28,20 +41,20 @@ git push -u origin main
 2. Source 选 **Deploy from a branch**
 3. Branch 选 **main**，目录选 **/ (root)**，点 Save
 4. 等 1–2 分钟，页面顶部会出现访问地址，形如
-   `https://你的用户名.github.io/knn/`
+   `https://Yduidui.github.io/knn/`
 
 仓库根目录里的 `.nojekyll` 是刻意放的，用来关掉 Jekyll 处理，
 不要删，否则带下划线的文件可能加载失败。
 
 ## 四、回填地址、重新生成二维码
 
-先用浏览器打开 `https://你的用户名.github.io/knn/p/4-5/`，
+先用浏览器打开 `https://Yduidui.github.io/knn/p/4-5/`，
 确认题目页正常、三个下载按钮都能点。
 
 然后改 `config.json` 的第一行：
 
 ```json
-"base_url": "https://你的用户名.github.io/knn"
+"base_url": "https://Yduidui.github.io/knn"
 ```
 
 重新生成：
@@ -57,7 +70,7 @@ python scripts/build.py
 
 - Word 排版用 `assets/qr/4-5.png`，插入宽度设为 **30mm**，居中，不要缩放成正方形以外的比例。
 - 出书或需要放大时用 `4-5.svg`，矢量不失真。
-- 二维码下面加一行小五号灰字：`扫码获取数据集与代码包　你的用户名.github.io/knn/p/4-5`
+- 二维码下面加一行小五号灰字：`扫码获取数据集与代码包　Yduidui.github.io/knn/p/4-5`
 
 ## 六、加新题
 
