@@ -1,0 +1,10 @@
+{
+  "base_url": "https://Yduidui.github.io/knn",
+  "site_title": "KNN 教材配套习题资源",
+  "qr": {
+    "error_level": "h",
+    "border_modules": 4,
+    "print_size_mm": 30,
+    "png_target_px": 1200
+  }
+}

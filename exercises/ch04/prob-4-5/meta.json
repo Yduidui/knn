@@ -1,0 +1,33 @@
+{
+  "id": "4-5",
+  "chapter": "ch04",
+  "type": "算法题",
+  "title": "用 KNN 回归预测有机污染物的水生急性毒性",
+  "difficulty": "中",
+  "author": "待填",
+  "version": "1.0.0",
+  "path": "p/4-5/",
+  "short_url_note": "二维码指向 p/4-5/ 目录页，不直连 zip",
+  "assets": {
+    "train": "p/4-5/train.csv",
+    "test": "p/4-5/test.csv",
+    "starter": "p/4-5/starter.zip"
+  },
+  "source": {
+    "name": "UCI QSAR aquatic toxicity (ID 505)",
+    "license": "CC BY 4.0",
+    "doi": "10.24432/C5SG7H",
+    "citation": "Ballabio, D., Cassotti, M., Consonni, V., & Todeschini, R. (2014). QSAR aquatic toxicity [Dataset]. UCI Machine Learning Repository."
+  },
+  "baseline": {
+    "best_k": 4,
+    "cv_rmse": 1.208,
+    "test_rmse": 1.072,
+    "test_r2": 0.534,
+    "raw_r2": 0.309
+  },
+  "checks": {
+    "pytest_passed": 10,
+    "e2e_threshold_r2": 0.45
+  }
+}

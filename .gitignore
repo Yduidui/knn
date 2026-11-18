@@ -1,0 +1,8 @@
+__pycache__/
+*.pyc
+.pytest_cache/
+.ipynb_checkpoints/
+_smoke/
+_verify/
+.DS_Store
+Thumbs.db
