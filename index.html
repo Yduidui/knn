@@ -5,50 +5,83 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>KNN 教材配套习题资源</title>
 <style>
-  :root{--ink:#1c1a17;--sub:#5c574e;--line:#e3ded2;--bg:#faf8f3;--card:#fff;--accent:#0f4c46}
+  :root{
+    --fg:#1f2328; --fg-muted:#656d76; --border:#d0d7de; --border-muted:#d8dee4;
+    --bg:#ffffff; --bg-subtle:#f6f8fa; --accent:#0969da;
+  }
   *{box-sizing:border-box}
-  body{margin:0;background:var(--bg);color:var(--ink);
-    font:16px/1.75 -apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif;
-    -webkit-font-smoothing:antialiased}
-  .wrap{max-width:720px;margin:0 auto;padding:0 22px 80px}
-  header{padding:64px 0 34px;border-bottom:1px solid var(--line)}
-  h1{font-size:26px;margin:0 0 12px;font-weight:600;letter-spacing:-.01em}
-  .lede{color:var(--sub);font-size:15.5px;margin:0;max-width:52ch}
-  h2{font-size:15px;color:var(--sub);font-weight:600;letter-spacing:.06em;
-    margin:40px 0 14px}
-  a.item{display:block;background:var(--card);border:1px solid var(--line);border-radius:11px;
-    padding:19px 20px;text-decoration:none;color:inherit;margin-bottom:11px;
-    transition:border-color .15s,transform .15s}
-  a.item:hover{border-color:#b9ae95;transform:translateY(-1px)}
-  .tag{display:inline-block;font-size:12px;color:var(--accent);background:#e8f1ef;
-    padding:2px 8px;border-radius:999px;margin-bottom:9px;letter-spacing:.02em}
-  .t{font-size:16.5px;font-weight:600;margin:0 0 7px;line-height:1.5}
-  .d{font-size:14px;color:var(--sub);margin:0;line-height:1.65}
-  .empty{border:1px dashed var(--line);border-radius:11px;padding:28px;text-align:center;
-    color:var(--sub);font-size:14.5px}
-  footer{margin-top:52px;padding-top:20px;border-top:1px solid var(--line);
-    font-size:13px;color:var(--sub)}
+  body{
+    margin:0;background:var(--bg);color:var(--fg);
+    font:16px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans",
+      "PingFang SC","Hiragino Sans GB","Microsoft YaHei",Helvetica,Arial,sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:880px;margin:0 auto;padding:32px 24px 80px}
+  a{color:var(--accent);text-decoration:none}
+  a:hover{text-decoration:underline}
+  h1{
+    font-size:30px;font-weight:600;letter-spacing:-.01em;margin:0 0 10px;
+    padding-bottom:12px;border-bottom:1px solid var(--border-muted);
+  }
+  .lede{color:var(--fg-muted);font-size:15px;margin:14px 0 0;max-width:60ch}
+  h2{
+    font-size:20px;font-weight:600;margin:40px 0 14px;padding-bottom:8px;
+    border-bottom:1px solid var(--border-muted);
+  }
+  .list{border:1px solid var(--border);border-radius:6px;overflow:hidden}
+  a.item{
+    display:block;padding:16px;color:inherit;
+    border-bottom:1px solid var(--border);transition:background .1s;
+  }
+  a.item:last-child{border-bottom:none}
+  a.item:hover{background:var(--bg-subtle);text-decoration:none}
+  .row{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+  .name{font-size:16px;font-weight:600;color:var(--accent)}
+  .mono{
+    font-family:ui-monospace,SFMono-Regular,"SF Mono",Menlo,Consolas,monospace;
+    font-size:12px;color:var(--fg-muted);border:1px solid var(--border);
+    border-radius:2em;padding:0 8px;line-height:18px;
+  }
+  .desc{font-size:14px;color:var(--fg-muted);margin:8px 0 0;line-height:1.6}
+  .empty{
+    border:1px solid var(--border);border-radius:6px;padding:24px;
+    text-align:center;color:var(--fg-muted);font-size:14px;
+  }
+  .foot{
+    margin-top:48px;padding-top:20px;border-top:1px solid var(--border-muted);
+    font-size:13px;color:var(--fg-muted);display:flex;gap:16px;
+    justify-content:space-between;flex-wrap:wrap;
+  }
+  @media(max-width:640px){
+    .wrap{padding:20px 16px 60px}
+    h1{font-size:24px}
+  }
 </style>
 </head>
 <body>
 <div class="wrap">
 
-<header>
   <h1>KNN 教材配套习题资源</h1>
-  <p class="lede">本页面集中存放教材各章习题配套的数据集与代码骨架。书中的二维码指向对应题目页，如链接有变动，以本页为准。</p>
-</header>
+  <p class="lede">教材各章习题的数据集与代码骨架存放在本仓库，通过 GitHub Pages 发布。书中的二维码指向对应题目的页面，如链接有变动，以本页为准。</p>
 
-<h2>第 4 章</h2>
+  <h2>第 4 章</h2>
+  <div class="list">
+    <a class="item" href="p/4-5/">
+      <div class="row">
+        <span class="name">用 K 近邻回归预测有机污染物的水生急性毒性</span>
+        <span class="mono">算法题 4.5</span>
+      </div>
+      <p class="desc">546 种化合物的分子描述符 → pLC50。手写 KNN、标准化、5 折交叉验证选 K，附自动判分脚本。</p>
+    </a>
+  </div>
 
-<a class="item" href="p/4-5/">
-  <span class="tag">算法题 4.5 · 中等</span>
-  <p class="t">用 K 近邻回归预测有机污染物的水生急性毒性</p>
-  <p class="d">546 种化合物的分子描述符 → pLC50。手写 KNN、标准化、5 折交叉验证选 K，附自动判分脚本。</p>
-</a>
+  <h2>说明</h2>
+  <p class="desc" style="margin-top:0">数据集来自 UCI Machine Learning Repository，许可为 CC BY 4.0。代码骨架只需 numpy 与 pytest，不需要 sklearn。</p>
 
-<div class="empty">其余题目陆续补充</div>
-
-<footer>数据集来自 UCI Machine Learning Repository，CC BY 4.0</footer>
+  <div class="foot">
+    <span>KNN 教材配套习题资源</span>
+    <span><a href="https://github.com/Yduidui/knn">GitHub 仓库</a></span>
+  </div>
 
 </div>
 </body>
